@@ -7,7 +7,6 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* Updated to a light blue background */
       background-color: #e0f2fe;
       color: #333;
       margin: 0;
@@ -79,11 +78,13 @@
       margin-top: 1rem;
     }
 
+    /* Updated to prevent horizontal truncation */
     .gallery-container img {
-      width: 30px;
-      height: auto;
+      width: 90px;
+      height: 90px; /* Maintains a consistent footprint */
       border-radius: 4px;
-      object-fit: cover;
+      object-fit: contain; /* Shrinks the image to fit without cropping */
+      background-color: #f0f0f0; /* Optional: light backing for transparent/odd-sized images */
     }
 
     ul {
@@ -153,7 +154,7 @@
         <div class="features-text">
           <h2>Play Together</h2>
           <ul>
-            <li>Play solo or invite remote friends.</li>
+            <li>Play solo or invite friends.</li>
             <li>Real-time multiplayer mode for cooperative puzzling.</li>
             <li>Start small with 25 pieces and work up to 1000 pieces.</li>
             <li>Work on large puzzles over multiple days.</li>
