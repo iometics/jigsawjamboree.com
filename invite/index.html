@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Join Game Session</title>
+</head>
+<body>
+    <h1>Join the Game!</h1>
+    <script>
+        // Extract token from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        // Try to open the app (custom scheme fallback)
+        if (token) {
+            window.location.href = `jigsawfree://invite?token=${token}`;
+            
+            // If app doesn't open in 2 seconds, show instructions
+            setTimeout(() => {
+                document.body.innerHTML = `
+                    <h2>Download the App</h2>
+                    <p><a href="https://apps.apple.com/app/YOUR_APP_ID">Download on App Store</a></p>
+                    <p>Your invite token: <code>${token}</code></p>
+                `;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
