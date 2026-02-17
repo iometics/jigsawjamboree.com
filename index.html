@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jigsaw Jamboree - Piece Together the Fun!</title>
+  <title>Jigsaw Jamboree - Connecting Pieces and People!</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23ffb347%22><path d=%22M20 12c0-1.1-.9-2-2-2V7c0-1.1-.9-2-2-2h-3c0-1.1-.9-2-2-2s-2 .9-2 2H6c-1.1 0-2 .9-2 2v3c-1.1 0-2 .9-2 2s.9 2 2 2v3c0 1.1.9 2 2 2h3c0 1.1.9 2 2 2s2-.9 2-2h3c1.1 0 2-.9 2-2v-3c1.1 0 2-.9 2-2z%22/></svg>">
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -70,21 +73,25 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
+    /* Gallery Updated for larger images and 4x2 grid */
     .gallery-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 20px; /* Increased gap for better spacing */
+      margin: 1.5rem auto 0;
+      max-width: 800px; /* Increased container width to allow for larger images */
     }
 
-    /* Updated to prevent horizontal truncation */
     .gallery-container img {
-      width: 90px;
-      height: 90px; /* Maintains a consistent footprint */
-      border-radius: 4px;
-      object-fit: contain; /* Shrinks the image to fit without cropping */
-      background-color: #f0f0f0; /* Optional: light backing for transparent/odd-sized images */
+      width: 100%;
+      max-width: 160px; /* Increased from 90px */
+      height: 160px;    /* Increased from 90px */
+      border-radius: 8px;
+      object-fit: cover; /* Switched to cover to fill the larger squares nicely */
+      background-color: #f0f0f0; 
+      justify-self: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     ul {
@@ -133,13 +140,16 @@
         display: inline-block;
         text-align: left;
       }
+      .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2x4 layout on smaller screens */
+        max-width: 400px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Jigsaw Jamboree</h1>
-    <p>Piece Together the Fun!</p>
     <p>Connecting Pieces and People.</p>
   </header>
 
